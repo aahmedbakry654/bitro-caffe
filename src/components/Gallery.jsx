@@ -25,6 +25,7 @@ const Gallery = () => {
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
   return (
+    
     <div className="gallery-container">
       <div className="gallery-grid">
         {images.map((img, index) => (

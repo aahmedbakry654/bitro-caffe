@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
   
   body, html {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
     font-family: 'Arial', sans-serif;
@@ -12,7 +12,7 @@
     background-color: #000;
   }
   
-  /* الفيديو كخلفية يغطي كل الصفحة */
+  /* الفيديو الخلفية */
   .hero-video-container {
     position: relative;
     width: 100%;
@@ -30,7 +30,7 @@
     object-fit: cover;
   }
   
-  /* النص المتوهج فوق الفيديو */
+  /* النص فوق الفيديو */
   .hero-text-above {
     position: absolute;
     top: 15%;
@@ -43,32 +43,25 @@
   .bitro-glow-text {
     font-size: 5rem;
     font-weight: bold;
-    color: #fff;
+    color: #d6c43b;
     text-shadow:
-      0 0 5px #0ff,
+      0 0 5px rgb(212, 70, 14),
       0 0 10px #0ff,
-      0 0 20px #0ff,
-      0 0 40px #0ff,
-      0 0 80px #0ff;
+      0 0 20px rgb(7, 8, 8),
+      0 0 40px rgb(14, 5, 187),
+      0 0 80px rgb(214, 217, 217);
     animation: flicker 2s infinite alternate;
     letter-spacing: 2px;
   }
   
-  /* تأثير التوهج للنص */
-  @keyframes flicker {
-    0%   { opacity: 1; transform: scale(1); }
-    50%  { opacity: 0.85; transform: scale(1.02); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-  
-  /* زر Menu تحت الفيديو */
+  /* زر القائمة */
   .menu-button-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem 1rem;
-    background-color: #000; /* خلفية ثابتة بعد الفيديو */
+    background-color: #000;
     z-index: 2;
   }
   
@@ -90,26 +83,44 @@
     animation: pulse 2s infinite ease-in-out;
   }
   
-  /* أيقونة الهامبرغر */
   .menu-button::before {
     content: '☰';
     font-size: 1.5rem;
-    display: inline-block;
     color: #0ff;
     text-shadow: 0 0 10px #0ff;
   }
   
-  /* نبض الزر */
+  /* الصور */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* الروابط */
+  a {
+    color: #0ff;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  
+  /* أنيميشن */
+  @keyframes flicker {
+    0%   { opacity: 1; transform: scale(1); }
+    50%  { opacity: 0.85; transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
   @keyframes pulse {
     0%   { box-shadow: 0 0 10px #0ff; }
     50%  { box-shadow: 0 0 30px #0ff; }
     100% { box-shadow: 0 0 10px #0ff; }
   }
   
-  /* استجابة الشاشات */
+  /* ريسبونسف للموبايل */
   @media (max-width: 768px) {
     .bitro-glow-text {
-      font-size: 3rem;
+      font-size: 2.8rem;
     }
   
     .menu-button {
@@ -120,19 +131,18 @@
     .menu-button::before {
       font-size: 1.2rem;
     }
-  }
   
-  @media (max-width: 480px) {
-    .bitro-glow-text {
-      font-size: 2.2rem;
+    .menu-button-container {
+      flex-direction: column;
+      text-align: center;
     }
   
-    .menu-button {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
+    /* تصغير الفيديو في الموبايل */
+    .hero-video-container {
+      height: 60vh; /* بدل 100vh */
     }
   
-    .menu-button::before {
-      font-size: 1rem;
+    .hero-text-above {
+      top: 10%;
   }
   }

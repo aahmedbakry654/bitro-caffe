@@ -1,27 +1,27 @@
 .social-table {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  padding: 30px 0;
+  flex-wrap: wrap; /* خليهم يلفوا لو الشاشة صغيرة */
+  gap: 20px;
+  padding: 20px 0;
 }
 
 .social-table a {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 28px;
+  font-size: 24px;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Shine animation */
 .social-table a::after {
   content: "";
   position: absolute;
@@ -46,13 +46,12 @@
   top: 150%;
 }
 
-/* Hover effect */
 .social-table a:hover {
-  transform: scale(1.2) rotate(3deg);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15) rotate(3deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Colors */
+/* Colors remain the same */
 .social-table a.facebook {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%,
   #371eb4 45%, #323ccd 60%, #1c4cdd 90%);
@@ -75,8 +74,21 @@
   background-color: #25d366;
 }
 
-
 .social-table a.map.i {
   background-color: #030303;
 }
 
+/* Responsive for small devices */
+@media (max-width: 768px) {
+  .social-table a {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-table {
+    gap: 14px;
+    padding: 16px 0;
+}
+}

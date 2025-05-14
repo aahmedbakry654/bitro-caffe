@@ -1,11 +1,23 @@
-body {
-
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
   background-image: url('../images/bacck.jpg');
-  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   font-family: 'Poppins', sans-serif;
+  color: white;
 }
 
+/* دي مهمة عشان الموبايلات متكسرش */
 .App {
-  text-align: center;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0 auto;
+  position: relative;
 }

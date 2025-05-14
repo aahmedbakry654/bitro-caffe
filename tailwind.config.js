@@ -1,9 +1,8 @@
-tailwind.config.js
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src//*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src//**/*.{js,jsx,ts,tsx}",  // تأكد إن المسار صح ويغطي كل الملفات داخل src
   ],
   theme: {
     extend: {
@@ -23,8 +22,5 @@ module.exports = {
       },
     },
   },
-
-
-
-  plugins: [],
-}
+  plugins: [],
+};
