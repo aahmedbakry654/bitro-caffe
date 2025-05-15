@@ -27,6 +27,7 @@ const Hero = () => {
         />
       </div>
 
+
       {/* النصوص الأربعة تحت الفيديو */}
       <div className="hero-info-text absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">

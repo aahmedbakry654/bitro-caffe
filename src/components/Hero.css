@@ -33,7 +33,7 @@ body, html {
 /* النص فوق الفيديو */
 .hero-text-above {
   position: fixed; /* Already fixed to stick during scroll */
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -59,7 +59,6 @@ body, html {
   -webkit-text-fill-color: transparent;
 }
 
-
 /* النصوص الأربعة تحت الفيديو */
 .hero-info-text {
   display: flex;
@@ -73,7 +72,7 @@ body, html {
   color: #fcf8f8;
   text-shadow:
       0 0 5px rgba(8, 225, 225, 0.7),
-      0 0 10px rgba(235, 239, 44, 0.5),
+      0 0 10px rgba(233, 236, 18, 0.5),
       0 0 15px rgba(21, 248, 4, 0.3);
 }
 
@@ -114,13 +113,23 @@ body, html {
 }
 
 .menu-icon {
-  font-size: 1.5rem;
-  color: rgb(185, 188, 46);
+  font-size: 1.8rem; /* حجم أكبر للأيقونة */
+  color: transparent; /* إزالة اللون الأساسي لاستخدام التدرج */
+  background: linear-gradient(45deg, #ff00ff, #00ffcc, #ffcc00, #ff0066); /* تدرج لوني متوهج */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow:
-      0 0 10px rgb(54, 16, 143),
-      0 0 20px rgba(255, 255, 0, 0.7),
-      0 0 30px rgba(0, 255, 255, 0.7);
-  animation: iconFlicker 1.5s infinite alternate, scalePulse 2s infinite ease-in-out;
+      0 0 8px rgba(255, 0, 255, 0.8),
+      0 0 15px rgba(0, 255, 255, 0.7),
+      0 0 25px rgba(255, 204, 0, 0.6),
+      0 0 40px rgba(255, 0, 102, 0.5); /* ظلال متعددة لتوهج قوي */
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); /* تأثير إضاءة إضافي */
+  animation:
+      iconFlicker 1.2s infinite alternate,
+      scalePulse 2s infinite ease-in-out,
+      rotateMicro 3s infinite ease-in-out, /* دوران طفيف لخداع بصري */
+      colorWave 2.5s infinite ease-in-out; /* تموج لوني */
+  transition: transform 0.3s ease, filter 0.3s ease; /* انتقال سلس */
 }
 
 /* الصور */
@@ -163,9 +172,9 @@ a {
 }
 
 @keyframes iconFlicker {
-  0%   { text-shadow: 0 0 10px rgb(54, 16, 143), 0 0 20px rgba(255, 255, 0, 0.7); }
-  50%  { text-shadow: 0 0 20px rgb(255, 0, 0), 0 0 30px rgba(0, 255, 255, 0.7); }
-  100% { text-shadow: 0 0 10px rgb(54, 16, 143), 0 0 20px rgba(255, 255, 0, 0.7); }
+  0%   { text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.7); }
+  50%  { text-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 25px rgba(255, 0, 102, 0.7); }
+  100% { text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.7); }
 }
 
 @keyframes glowPulse {
@@ -194,8 +203,23 @@ a {
 
 @keyframes scalePulse {
   0%   { transform: scale(1); }
-  50%  { transform: scale(1.2); }
+  50%  { transform: scale(1.15); }
   100% { transform: scale(1); }
+}
+
+/* أنيميشن جديد للأيقونة */
+@keyframes rotateMicro {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes colorWave {
+  0%   { background: linear-gradient(45deg, #ff00ff, #00ffcc, #ffcc00, #ff0066); }
+  25%  { background: linear-gradient(45deg, #00ffcc, #ffcc00, #ff0066, #ff00ff); }
+  50%  { background: linear-gradient(45deg, #ffcc00, #ff0066, #ff00ff, #00ffcc); }
+  75%  { background: linear-gradient(45deg, #ff0066, #ff00ff, #00ffcc, #ffcc00); }
+  100% { background: linear-gradient(45deg, #ff00ff, #00ffcc, #ffcc00, #ff0066); }
 }
 
 /* ريسبونسف للموبايل */
@@ -218,7 +242,7 @@ a {
   }
 
   .menu-icon {
-      font-size: 1.2rem;
+      font-size: 1.4rem; /* حجم أصغر قليلاً للموبايل */
   }
 
   .menu-button-container {
@@ -226,21 +250,21 @@ a {
       text-align: center;
   }
 
-  .hero-video-container {
-      height: 60vh;
-  }
-
-  .hero-text-above {
-      top: 8%;
-  }
-
-  .hero-info-text {
-      bottom: 20%;
-  }
+   /* تصغير الفيديو في الموبايل */
+   .hero-video-container {
+    height: auto; /* الارتفاع يتكيف مع الفيديو */
+    width: 100%; /* العرض يأخذ عرض الشاشة */
+    max-width: 100%; /* يمنع التجاوز */
 }
 
-@media (max-width: 768px) {
-  .hero-video {
-      object-fit: contain;
+.hero-text-above {
+    top: 10%;
+}
+
+.hero-video {
+    width: 100%; /* العرض الأصلي للفيديو */
+    height: auto; /* الارتفاع يتكيف */
+    object-fit: contain; /* بدون زووم أو قص */
+    position: relative; /* للتكيف مع الحاوية */
 }
 }
