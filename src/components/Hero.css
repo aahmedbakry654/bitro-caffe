@@ -1,148 +1,207 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
-    background-color: #000;
-  }
-  
-  /* الفيديو الخلفية */
-  .hero-video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 0;
-  }
-  
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* النص فوق الفيديو */
-  .hero-text-above {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    text-align: center;
-  }
-  
-  .bitro-glow-text {
-    font-size: 5rem;
-    font-weight: bold;
-    color: #d6c43b;
-    text-shadow:
-      0 0 5px rgb(212, 70, 14),
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+/* الفيديو الخلفية */
+.hero-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* النص فوق الفيديو */
+.hero-text-above {
+  position: fixed; /* Already fixed to stick during scroll */
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  text-align: center;
+}
+
+.bitro-glow-text {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #c4b968;
+  text-shadow:
+      0 0 5px rgb(214, 189, 50),
       0 0 10px #0ff,
       0 0 20px rgb(7, 8, 8),
       0 0 40px rgb(14, 5, 187),
-      0 0 80px rgb(214, 217, 217);
-    animation: flicker 2s infinite alternate;
-    letter-spacing: 2px;
-  }
-  
-  /* زر القائمة */
-  .menu-button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-    background-color: #000;
-    z-index: 2;
-  }
-  
-  .menu-button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background: transparent;
-    border: 2px solid #0ff;
-    border-radius: 12px;
-    cursor: pointer;
-    text-shadow: 0 0 5px #0ff;
-    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    transition: all 0.3s ease-in-out;
-    animation: pulse 2s infinite ease-in-out;
-  }
-  
-  .menu-button::before {
-    content: '☰';
-    font-size: 1.5rem;
-    color: #0ff;
-    text-shadow: 0 0 10px #0ff;
-  }
-  
-  /* الصور */
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* الروابط */
-  a {
-    color: #0ff;
-    text-decoration: none;
-    word-break: break-word;
-  }
-  
-  /* أنيميشن */
-  @keyframes flicker {
-    0%   { opacity: 1; transform: scale(1); }
-    50%  { opacity: 0.85; transform: scale(1.02); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-  
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 10px #0ff; }
-    50%  { box-shadow: 0 0 30px #0ff; }
-    100% { box-shadow: 0 0 10px #0ff; }
-  }
-  
-  /* ريسبونسف للموبايل */
-  @media (max-width: 768px) {
-    .bitro-glow-text {
+      0 0 80px rgb(214, 217, 217),
+      0 0 120px rgba(218, 196, 55, 0.5), /* Added for more depth */
+      0 0 160px rgba(0, 255, 255, 0.5); /* Added for more depth */
+  animation: flicker 2s infinite alternate, glowShift 3s infinite ease-in-out; /* Added glowShift animation */
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #c4b968, #0ff, #ff00ff); /* Gradient background for text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Gradient text effect */
+}
+
+/* زر القائمة */
+.menu-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #000;
+  z-index: 2;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  border: 2px solid rgb(232, 216, 64);
+  border-radius: 12px;
+  cursor: pointer;
+  text-shadow: 0 0 5px rgb(9, 225, 45),
+               0 0 10px rgba(255, 0, 255, 0.7),
+               0 0 15px rgba(0, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgb(215, 201, 46),
+              0 0 20px rgb(228, 228, 33),
+              0 0 30px rgba(233, 245, 3, 0.5),
+              0 0 40px rgba(0, 255, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  animation: pulse 2s infinite ease-in-out, rotateGlow 4s infinite ease-in-out;
+}
+
+.menu-button::before {
+  content: '☰';
+  font-size: 1.5rem;
+  color: rgb(185, 188, 46);
+  text-shadow: 0 0 10px rgb(54, 16, 143),
+               0 0 20px rgba(255, 255, 0, 0.7),
+               0 0 30px rgba(0, 255, 255, 0.7);
+  animation: iconFlicker 1.5s infinite alternate;
+}
+
+/* الصور */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* الروابط */
+a {
+  color: #0ff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+/* أنيميشن */
+@keyframes flicker {
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.85; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 10px #0ff; }
+  50%  { box-shadow: 0 0 30px #0ff; }
+  100% { box-shadow: 0 0 10px #0ff; }
+}
+
+@keyframes glowShift {
+  0%   { text-shadow: 0 0 5px rgb(223, 201, 39), 0 0 10px #0ff, 0 0 20px rgb(7, 8, 8), 0 0 40px rgb(14, 5, 187), 0 0 80px rgb(214, 217, 217); }
+  50%  { text-shadow: 0 0 10px rgb(84, 181, 67), 0 0 20px #ff0, 0 0 30px rgb(0, 255, 0), 0 0 50px rgb(0, 0, 255), 0 0 100px rgb(255, 255, 255); }
+  100% { text-shadow: 0 0 5px rgb(56, 14, 209), 0 0 10px #0ff, 0 0 20px rgb(7, 8, 8), 0 0 40px rgb(14, 5, 187), 0 0 80px rgb(214, 217, 217); }
+}
+
+@keyframes rotateGlow {
+  0%   { transform: rotate(0deg); box-shadow: 0 0 10px #0ff, 0 0 20px #ff0; }
+  50%  { transform: rotate(5deg); box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ff00; }
+  100% { transform: rotate(0deg); box-shadow: 0 0 10px #0ff, 0 0 20px #ff0; }
+}
+
+@keyframes iconFlicker {
+  0%   { text-shadow: 0 0 10px rgb(54, 16, 143), 0 0 20px rgba(255, 255, 0, 0.7); }
+  50%  { text-shadow: 0 0 20px rgb(255, 0, 0), 0 0 30px rgba(0, 255, 255, 0.7); }
+  100% { text-shadow: 0 0 10px rgb(54, 16, 143), 0 0 20px rgba(255, 255, 0, 0.7); }
+}
+
+/* New animation for pulsing glow on بيترو text */
+@keyframes glowPulse {
+  0%   { text-shadow: 0 0 10px #ffff00, 0 0 20px #ffea00, 0 0 30px #ffd700; }
+  50%  { text-shadow: 0 0 30px #ffff00, 0 0 60px #ffea00, 0 0 90px #ffd700; }
+  100% { text-shadow: 0 0 10px #ffff00, 0 0 20px #ffea00, 0 0 30px #ffd700; }
+}
+
+/* New animation for slight rotation on بيترو text */
+@keyframes rotateText {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  50%  { transform: translateX(-50%) rotate(2deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* New animation for color shifting on بيترو text */
+@keyframes colorShift {
+  0%   { background: linear-gradient(45deg, #ffff00, #ffea00, #ffd700); }
+  33%  { background: linear-gradient(45deg, #ffea00, #ffd700, #ffff00); }
+  66%  { background: linear-gradient(45deg, #ffd700, #ffff00, #ffea00); }
+  100% { background: linear-gradient(45deg, #ffff00, #ffea00, #ffd700); }
+}
+
+/* ريسبونسف للموبايل */
+@media (max-width: 768px) {
+  .bitro-glow-text {
       font-size: 2.8rem;
-    }
-  
-    .menu-button {
+  }
+
+  .menu-button {
       padding: 0.8rem 1.5rem;
       font-size: 1rem;
-    }
-  
-    .menu-button::before {
+  }
+
+  .menu-button::before {
       font-size: 1.2rem;
-    }
-  
-    .menu-button-container {
+  }
+
+  .menu-button-container {
       flex-direction: column;
       text-align: center;
-    }
-  
-    /* تصغير الفيديو في الموبايل */
-    .hero-video-container {
+  }
+
+  /* تصغير الفيديو في الموبايل */
+  .hero-video-container {
       height: 60vh; /* بدل 100vh */
-    }
-  
-    .hero-text-above {
+  }
+
+  .hero-text-above {
       top: 10%;
   }
-  }
+}
+
+@media (max-width: 768px) {
+  .hero-video {
+      object-fit: contain;
+}
+}
