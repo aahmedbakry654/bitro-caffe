@@ -7,12 +7,12 @@ const Hero = () => {
 
   return (
     <div className="hero-wrapper w-full h-screen relative overflow-hidden">
-      
-      {/* نص بيترو كافيه */}
+      {/* نص بيترو كافيه ومطعم */}
       <div className="hero-text-above absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <h1 className="bitro-glow-text text-5xl md:text-7xl text-cyan-400 font-bold drop-shadow-lg">
           Bitro
         </h1>
+    
       </div>
 
       {/* فيديو الخلفية */}
@@ -27,13 +27,32 @@ const Hero = () => {
         />
       </div>
 
+      {/* النصوص الأربعة تحت الفيديو */}
+      <div className="hero-info-text absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10 text-center">
+        <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
+        في بيترو، بنقدّم لك تجربة متكاملة تجمع بين الطعم الأصيل والجو المميز.
+        </p>
+        <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
+        أول ما تدخل بيترو… هتحس إنك في حتة تانية.
+
+        </p>
+        <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
+        يحة القهوة، صوت المزيكا، والدوق العالي في كل حاجة.
+مش خروجة وخلاص، دي تجربة بتفصلك عن الدنيا.
+
+        </p>
+        <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
+        بيترو… علشان اللحظة تستاهل.
+        </p>
+      </div>
+
       {/* زر المينيو */}
       <div className="menu-button-container absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
         <button
           className="menu-button bg-black bg-opacity-70 text-white px-6 py-3 rounded-xl text-lg border border-cyan-400 shadow-lg hover:bg-cyan-700 transition"
           onClick={() => setShowGallery(!showGallery)}
         >
-          Menu
+          <span className="menu-icon">☰</span> Menu
         </button>
       </div>
 
@@ -43,4 +62,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero;

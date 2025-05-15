@@ -33,7 +33,7 @@ body, html {
 /* النص فوق الفيديو */
 .hero-text-above {
   position: fixed; /* Already fixed to stick during scroll */
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -50,13 +50,31 @@ body, html {
       0 0 20px rgb(7, 8, 8),
       0 0 40px rgb(14, 5, 187),
       0 0 80px rgb(214, 217, 217),
-      0 0 120px rgba(218, 196, 55, 0.5), /* Added for more depth */
-      0 0 160px rgba(0, 255, 255, 0.5); /* Added for more depth */
-  animation: flicker 2s infinite alternate, glowShift 3s infinite ease-in-out; /* Added glowShift animation */
+      0 0 120px rgba(218, 196, 55, 0.5),
+      0 0 160px rgba(0, 255, 255, 0.5);
+  animation: flicker 2s infinite alternate, glowShift 3s infinite ease-in-out, glowPulse 4s infinite ease-in-out;
   letter-spacing: 2px;
-  background: linear-gradient(45deg, #c4b968, #0ff, #ff00ff); /* Gradient background for text */
+  background: linear-gradient(45deg, #c4b968, #0ff, #ff00ff);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Gradient text effect */
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* النصوص الأربعة تحت الفيديو */
+.hero-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1;
+}
+
+.info-line {
+  font-size: 1.2rem;
+  color: #fcf8f8;
+  text-shadow:
+      0 0 5px rgba(8, 225, 225, 0.7),
+      0 0 10px rgba(235, 239, 44, 0.5),
+      0 0 15px rgba(21, 248, 4, 0.3);
 }
 
 /* زر القائمة */
@@ -78,29 +96,31 @@ body, html {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
-  background: transparent;
+  background: linear-gradient(45deg, rgb(9, 9, 9), #cfcf21, #e2e2e3);
   border: 2px solid rgb(232, 216, 64);
   border-radius: 12px;
   cursor: pointer;
-  text-shadow: 0 0 5px rgb(9, 225, 45),
-               0 0 10px rgba(255, 0, 255, 0.7),
-               0 0 15px rgba(0, 255, 255, 0.7);
-  box-shadow: 0 0 10px rgb(215, 201, 46),
-              0 0 20px rgb(228, 228, 33),
-              0 0 30px rgba(233, 245, 3, 0.5),
-              0 0 40px rgba(0, 255, 0, 0.5);
+  text-shadow:
+      0 0 5px rgb(9, 225, 45),
+      0 0 10px rgba(255, 0, 255, 0.7),
+      0 0 15px rgba(0, 255, 255, 0.7);
+  box-shadow:
+      0 0 10px rgb(215, 201, 46),
+      0 0 20px rgb(228, 228, 33),
+      0 0 30px rgba(233, 245, 3, 0.5),
+      0 0 40px rgba(0, 255, 0, 0.5);
   transition: all 0.3s ease-in-out;
   animation: pulse 2s infinite ease-in-out, rotateGlow 4s infinite ease-in-out;
 }
 
-.menu-button::before {
-  content: '☰';
+.menu-icon {
   font-size: 1.5rem;
   color: rgb(185, 188, 46);
-  text-shadow: 0 0 10px rgb(54, 16, 143),
-               0 0 20px rgba(255, 255, 0, 0.7),
-               0 0 30px rgba(0, 255, 255, 0.7);
-  animation: iconFlicker 1.5s infinite alternate;
+  text-shadow:
+      0 0 10px rgb(54, 16, 143),
+      0 0 20px rgba(255, 255, 0, 0.7),
+      0 0 30px rgba(0, 255, 255, 0.7);
+  animation: iconFlicker 1.5s infinite alternate, scalePulse 2s infinite ease-in-out;
 }
 
 /* الصور */
@@ -148,26 +168,34 @@ a {
   100% { text-shadow: 0 0 10px rgb(54, 16, 143), 0 0 20px rgba(255, 255, 0, 0.7); }
 }
 
-/* New animation for pulsing glow on بيترو text */
 @keyframes glowPulse {
   0%   { text-shadow: 0 0 10px #ffff00, 0 0 20px #ffea00, 0 0 30px #ffd700; }
   50%  { text-shadow: 0 0 30px #ffff00, 0 0 60px #ffea00, 0 0 90px #ffd700; }
   100% { text-shadow: 0 0 10px #ffff00, 0 0 20px #ffea00, 0 0 30px #ffd700; }
 }
 
-/* New animation for slight rotation on بيترو text */
 @keyframes rotateText {
   0%   { transform: translateX(-50%) rotate(0deg); }
   50%  { transform: translateX(-50%) rotate(2deg); }
   100% { transform: translateX(-50%) rotate(0deg); }
 }
 
-/* New animation for color shifting on بيترو text */
 @keyframes colorShift {
   0%   { background: linear-gradient(45deg, #ffff00, #ffea00, #ffd700); }
   33%  { background: linear-gradient(45deg, #ffea00, #ffd700, #ffff00); }
   66%  { background: linear-gradient(45deg, #ffd700, #ffff00, #ffea00); }
   100% { background: linear-gradient(45deg, #ffff00, #ffea00, #ffd700); }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0.7; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scalePulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 /* ريسبونسف للموبايل */
@@ -176,12 +204,20 @@ a {
       font-size: 2.8rem;
   }
 
+  .cafe-glow-text {
+      font-size: 1.5rem;
+  }
+
+  .info-line {
+      font-size: 1rem;
+  }
+
   .menu-button {
       padding: 0.8rem 1.5rem;
       font-size: 1rem;
   }
 
-  .menu-button::before {
+  .menu-icon {
       font-size: 1.2rem;
   }
 
@@ -190,18 +226,21 @@ a {
       text-align: center;
   }
 
-  /* تصغير الفيديو في الموبايل */
   .hero-video-container {
-      height: 60vh; /* بدل 100vh */
+      height: 60vh;
   }
 
   .hero-text-above {
-      top: 10%;
+      top: 8%;
+  }
+
+  .hero-info-text {
+      bottom: 20%;
   }
 }
 
 @media (max-width: 768px) {
   .hero-video {
-      object-fit: contain;
+      object-fit: contain;
 }
 }
