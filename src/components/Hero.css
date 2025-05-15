@@ -48,7 +48,7 @@ body, html {
       0 0 5px rgb(214, 189, 50),
       0 0 10px #0ff,
       0 0 20px rgb(7, 8, 8),
-      0 0 40px rgb(14, 5, 187),
+      0 0 40px rgb(12, 193, 234),
       0 0 80px rgb(214, 217, 217),
       0 0 120px rgba(218, 196, 55, 0.5),
       0 0 160px rgba(0, 255, 255, 0.5);
@@ -63,19 +63,56 @@ body, html {
 .hero-info-text {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
   z-index: 1;
 }
 
 .info-line {
-  font-size: 1.2rem;
-  color: #c7c702;
+  font-size: 1.6rem; /* Increased font size for larger text */
+  font-family: 'Montserrat', sans-serif; /* Professional, modern font */
+  font-weight: 700; /* Bold for emphasis */
+  color: rgb(249, 249, 246); /* Bright, clean text color */
+  text-align: center; /* Centered for professional look */
+  text-transform: uppercase; /* Uppercase for a bold, premium feel */
+  letter-spacing: 1.5px; /* Slight spacing for readability */
   text-shadow:
-      0 0 5px rgba(6, 190, 190, 0.7),
-      0 0 10px rgba(3, 83, 7, 0.5),
-      0 0 15px rgba(236, 236, 241, 0.3);
+    0 0 5px rgba(232, 230, 228, 0.7),
+    0 0 10px rgba(9, 227, 82, 0.5),
+    0 0 20px rgba(4, 4, 118, 0.4); /* Enhanced shadow for depth */
+  animation: glow-pulse 1s ease-in-out infinite; /* Animated glowing effect */
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
 }
 
+/* Glowing pulse animation */
+@keyframes glow-pulse {
+  0% {
+    text-shadow:
+      0 0 5px rgba(237, 90, 4, 0.7),
+      0 0 10px rgba(9, 227, 82, 0.5),
+      0 0 20px rgba(4, 4, 118, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(237, 90, 4, 0.9),
+      0 0 20px rgba(9, 227, 82, 0.7),
+      0 0 30px rgba(4, 4, 118, 0.6);
+  }
+  100% {
+    text-shadow:
+      0 0 5px rgba(237, 90, 4, 0.7),
+      0 0 10px rgba(9, 227, 82, 0.5),
+      0 0 20px rgba(4, 4, 118, 0.4);
+  }
+}
+
+/* Hover effect for interactive illusion */
+.info-line:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  text-shadow:
+    0 0 15px rgba(237, 90, 4, 1),
+    0 0 25px rgba(9, 227, 82, 0.8),
+    0 0 35px rgba(4, 4, 118, 0.7); /* Stronger glow on hover */
+}
 /* زر القائمة */
 .menu-button-container {
   width: 100%;
@@ -83,7 +120,7 @@ body, html {
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
-  background-color: #000;
+  background-color: #080808;
   z-index: 2;
 }
 
@@ -94,43 +131,25 @@ body, html {
   padding: 1rem 2rem;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
-  background: linear-gradient(45deg, rgb(9, 9, 9), #cfcf21, #e2e2e3);
-  border: 2px solid rgb(232, 216, 64);
+  color: #070707;
+  background: linear-gradient(45deg, rgb(196, 67, 20), #f9f9f7, #dde10c);
+  border: 2px solid rgb(218, 217, 214);
   border-radius: 12px;
   cursor: pointer;
   text-shadow:
-      0 0 5px rgb(168, 188, 53),
-      0 0 10px rgba(255, 0, 255, 0.7),
+      0 0 5px rgb(245, 245, 240),
+      0 0 10px rgba(242, 6, 242, 0.7),
       0 0 15px rgba(0, 255, 255, 0.7);
   box-shadow:
       0 0 10px rgb(215, 201, 46),
-      0 0 20px rgb(228, 228, 33),
+      0 0 20px rgb(5, 184, 41),
       0 0 30px rgba(233, 245, 3, 0.5),
-      0 0 40px rgba(0, 255, 0, 0.5);
+      0 0 40px rgba(240, 19, 19, 0.5);
   transition: all 0.3s ease-in-out;
-  animation: pulse 2s infinite ease-in-out, rotateGlow 4s infinite ease-in-out;
+  animation: pulse 1s infinite ease-in-out, rotateGlow 1s infinite ease-in-out;
 }
 
-.menu-icon {
-  font-size: 1.8rem; /* حجم أكبر للأيقونة */
-  color: transparent; /* إزالة اللون الأساسي لاستخدام التدرج */
-  background: linear-gradient(45deg, #ff00ff, #00ffcc, #ffcc00, #ff0066); /* تدرج لوني متوهج */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow:
-      0 0 8px rgba(255, 0, 255, 0.8),
-      0 0 15px rgba(0, 255, 255, 0.7),
-      0 0 25px rgba(255, 204, 0, 0.6),
-      0 0 40px rgba(255, 0, 102, 0.5); /* ظلال متعددة لتوهج قوي */
-  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); /* تأثير إضاءة إضافي */
-  animation:
-      iconFlicker 1.2s infinite alternate,
-      scalePulse 2s infinite ease-in-out,
-      rotateMicro 3s infinite ease-in-out, /* دوران طفيف لخداع بصري */
-      colorWave 2.5s infinite ease-in-out; /* تموج لوني */
-  transition: transform 0.3s ease, filter 0.3s ease; /* انتقال سلس */
-}
+
 
 /* الصور */
 img {

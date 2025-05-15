@@ -31,14 +31,14 @@ const Hero = () => {
       {/* النصوص الأربعة تحت الفيديو */}
       <div className="hero-info-text absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
-        في بيترو، بنقدّم لك تجربة متكاملة تجمع بين الطعم الأصيل والجو المميز.
+         بيترو، بنقدّم لك تجربة متكاملة تجمع بين الطعم الأصيل والجو المميز.
         </p>
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
         أول ما تدخل بيترو هتحس إنك في حتة تانية.
 
         </p>
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
-        ريحة القهوة، صوت المزيكا، والتدوق العالي في كل حاجة
+        ريحة القهوة، صوت المزيكا، والتذوق العالي في كل حاجة
 هي مش خروجة وخلاص، دي تجربة بتفصلك عن الدنيا.
 
         </p>
