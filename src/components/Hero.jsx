@@ -34,16 +34,16 @@ const Hero = () => {
         في بيترو، بنقدّم لك تجربة متكاملة تجمع بين الطعم الأصيل والجو المميز.
         </p>
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
-        أول ما تدخل بيترو… هتحس إنك في حتة تانية.
+        أول ما تدخل بيترو هتحس إنك في حتة تانية.
 
         </p>
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
-        يحة القهوة، صوت المزيكا، والدوق العالي في كل حاجة.
-مش خروجة وخلاص، دي تجربة بتفصلك عن الدنيا.
+        ريحة القهوة، صوت المزيكا، والتدوق العالي في كل حاجة
+هي مش خروجة وخلاص، دي تجربة بتفصلك عن الدنيا.
 
         </p>
         <p className="info-line text-lg md:text-xl text-white font-semibold drop-shadow-md">
-        بيترو… علشان اللحظة تستاهل.
+         بيترو علشان اللحظة تستاهل.
         </p>
       </div>
 
